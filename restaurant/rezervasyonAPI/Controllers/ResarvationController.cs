@@ -33,7 +33,7 @@ namespace rezervasyonAPI.Controllers
             {
                 return BadRequest(ModelState); // Geçersiz model durumunda 400 Bad Request döndür
             }
-
+            //test
             using (var db = new RestaurantDBEntities1()) // DbContext her istek için burada oluşturulur
             {
                 try
