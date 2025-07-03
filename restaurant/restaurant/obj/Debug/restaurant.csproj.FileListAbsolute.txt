@@ -1,0 +1,14 @@
+C:\nesneProgramlama\restaurant\restaurant\bin\Debug\restaurant.exe.config
+C:\nesneProgramlama\restaurant\restaurant\bin\Debug\restaurant.exe
+C:\nesneProgramlama\restaurant\restaurant\bin\Debug\restaurant.pdb
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.csproj.AssemblyReference.cache
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.Form1.resources
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.Properties.Resources.resources
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.csproj.GenerateResource.cache
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.csproj.CoreCompileInputs.cache
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.exe
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.pdb
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.masalar.resources
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.adminpanel.resources
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.siparisform.resources
+C:\nesneProgramlama\restaurant\restaurant\obj\Debug\restaurant.odeme.resources

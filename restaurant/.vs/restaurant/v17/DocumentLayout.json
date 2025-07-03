@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\nesneProgramlama\\restaurant\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|c:\\nesneprogramlama\\restaurant\\rezervasyonapi\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|c:\\nesneprogramlama\\restaurant\\rezervasyonapi\\controllers\\resarvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\controllers\\resarvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|c:\\nesneprogramlama\\restaurant\\rezervasyonapi\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\nesneprogramlama\\restaurant\\restaurant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|C:\\nesneProgramlama\\restaurant\\rezervasyonapi\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Web.config",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\Web.config",
+              "ToolTip": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Web.config",
+              "RelativeToolTip": "rezervasyonAPI\\Web.config",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-02T08:09:49.681Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Startup.cs",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\Startup.cs",
+              "ToolTip": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Startup.cs",
+              "RelativeToolTip": "rezervasyonAPI\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T07:16:41.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\nesneProgramlama\\restaurant\\restaurant\\Form1.cs",
+              "RelativeDocumentMoniker": "restaurant\\Form1.cs",
+              "ToolTip": "C:\\nesneProgramlama\\restaurant\\restaurant\\Form1.cs",
+              "RelativeToolTip": "restaurant\\Form1.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T06:38:03.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Models\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\Models\\LoginRequest.cs",
+              "ToolTip": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Models\\LoginRequest.cs",
+              "RelativeToolTip": "rezervasyonAPI\\Models\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T13:30:16.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ResarvationController.cs",
+              "DocumentMoniker": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Controllers\\ResarvationController.cs",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\Controllers\\ResarvationController.cs",
+              "ToolTip": "C:\\nesneProgramlama\\restaurant\\rezervasyonAPI\\Controllers\\ResarvationController.cs",
+              "RelativeToolTip": "rezervasyonAPI\\Controllers\\ResarvationController.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAkwJwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T08:03:56.78Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

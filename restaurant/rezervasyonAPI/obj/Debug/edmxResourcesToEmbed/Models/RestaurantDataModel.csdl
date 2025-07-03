@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Urunlers" Relationship="Self.FK_Urunler_Kategoriler" FromRole="Kategoriler" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Siparislers" Relationship="Self.FK__Siparisle__Kulla__5BE2A6F2" FromRole="Kullanicilar" ToRole="Siparisler" />
+  </EntityType>
+  <EntityType Name="Masalar">
+    <Key>
+      <PropertyRef Name="MasaID" />
+    </Key>
+    <Property Name="MasaID" Type="Int32" Nullable="false" />
+    <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Siparislers" Relationship="Self.FK__Siparisle__MasaI__5AEE82B9" FromRole="Masalar" ToRole="Siparisler" />
+  </EntityType>
+  <EntityType Name="SiparisDetay">
+    <Key>
+      <PropertyRef Name="DetayID" />
+    </Key>
+    <Property Name="DetayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SiparisID" Type="Int32" />
+    <Property Name="UrunID" Type="Int32" />
+    <Property Name="Adet" Type="Int32" />
+    <Property Name="BirimFiyat" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Siparisler" Relationship="Self.FK__SiparisDe__Sipar__5EBF139D" FromRole="SiparisDetay" ToRole="Siparisler" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK__SiparisDe__UrunI__5FB337D6" FromRole="SiparisDetay" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Siparisler">
+    <Key>
+      <PropertyRef Name="SiparisID" />
+    </Key>
+    <Property Name="SiparisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasaID" Type="Int32" />
+    <Property Name="KullaniciID" Type="Int32" />
+    <Property Name="TarihSaat" Type="DateTime" Precision="3" />
+    <Property Name="OdemeDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicilar" Relationship="Self.FK__Siparisle__Kulla__5BE2A6F2" FromRole="Siparisler" ToRole="Kullanicilar" />
+    <NavigationProperty Name="Masalar" Relationship="Self.FK__Siparisle__MasaI__5AEE82B9" FromRole="Siparisler" ToRole="Masalar" />
+    <NavigationProperty Name="SiparisDetays" Relationship="Self.FK__SiparisDe__Sipar__5EBF139D" FromRole="Siparisler" ToRole="SiparisDetay" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="Int32" Nullable="false" />
+    <Property Name="UrunFiyat" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="UrunAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KategoriID" Type="Int32" />
+    <NavigationProperty Name="Kategoriler" Relationship="Self.FK_Urunler_Kategoriler" FromRole="Urunler" ToRole="Kategoriler" />
+    <NavigationProperty Name="SiparisDetays" Relationship="Self.FK__SiparisDe__UrunI__5FB337D6" FromRole="Urunler" ToRole="SiparisDetay" />
+  </EntityType>
+  <Association Name="FK_Urunler_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="KategoriID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="KategoriID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siparisle__Kulla__5BE2A6F2">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="0..1" />
+    <End Role="Siparisler" Type="Self.Siparisler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="KullaniciID" />
+      </Principal>
+      <Dependent Role="Siparisler">
+        <PropertyRef Name="KullaniciID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Siparisle__MasaI__5AEE82B9">
+    <End Role="Masalar" Type="Self.Masalar" Multiplicity="0..1" />
+    <End Role="Siparisler" Type="Self.Siparisler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masalar">
+        <PropertyRef Name="MasaID" />
+      </Principal>
+      <Dependent Role="Siparisler">
+        <PropertyRef Name="MasaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SiparisDe__Sipar__5EBF139D">
+    <End Role="Siparisler" Type="Self.Siparisler" Multiplicity="0..1" />
+    <End Role="SiparisDetay" Type="Self.SiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Siparisler">
+        <PropertyRef Name="SiparisID" />
+      </Principal>
+      <Dependent Role="SiparisDetay">
+        <PropertyRef Name="SiparisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SiparisDe__UrunI__5FB337D6">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="SiparisDetay" Type="Self.SiparisDetay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="SiparisDetay">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RestaurantDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kategorilers" EntityType="Self.Kategoriler" />
+    <EntitySet Name="Kullanicilars" EntityType="Self.Kullanicilar" />
+    <EntitySet Name="Masalars" EntityType="Self.Masalar" />
+    <EntitySet Name="SiparisDetays" EntityType="Self.SiparisDetay" />
+    <EntitySet Name="Siparislers" EntityType="Self.Siparisler" />
+    <EntitySet Name="Urunlers" EntityType="Self.Urunler" />
+    <AssociationSet Name="FK_Urunler_Kategoriler" Association="Self.FK_Urunler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategorilers" />
+      <End Role="Urunler" EntitySet="Urunlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siparisle__Kulla__5BE2A6F2" Association="Self.FK__Siparisle__Kulla__5BE2A6F2">
+      <End Role="Kullanicilar" EntitySet="Kullanicilars" />
+      <End Role="Siparisler" EntitySet="Siparislers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Siparisle__MasaI__5AEE82B9" Association="Self.FK__Siparisle__MasaI__5AEE82B9">
+      <End Role="Masalar" EntitySet="Masalars" />
+      <End Role="Siparisler" EntitySet="Siparislers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SiparisDe__Sipar__5EBF139D" Association="Self.FK__SiparisDe__Sipar__5EBF139D">
+      <End Role="Siparisler" EntitySet="Siparislers" />
+      <End Role="SiparisDetay" EntitySet="SiparisDetays" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SiparisDe__UrunI__5FB337D6" Association="Self.FK__SiparisDe__UrunI__5FB337D6">
+      <End Role="Urunler" EntitySet="Urunlers" />
+      <End Role="SiparisDetay" EntitySet="SiparisDetays" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
