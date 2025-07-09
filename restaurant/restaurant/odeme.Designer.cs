@@ -105,6 +105,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "ÖDEMEYİ TAMAMLA";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // odeme
             // 
@@ -120,6 +121,7 @@
             this.Controls.Add(this.label);
             this.Name = "odeme";
             this.Text = "odeme";
+            this.Load += new System.EventHandler(this.odeme_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

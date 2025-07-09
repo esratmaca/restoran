@@ -149,6 +149,8 @@
     <Compile Include="masalar.Designer.cs">
       <DependentUpon>masalar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\SiparisKalemi.cs" />
+    <Compile Include="Models\Urunler.cs" />
     <Compile Include="odeme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +165,7 @@
     <Compile Include="siparisform.Designer.cs">
       <DependentUpon>siparisform.cs</DependentUpon>
     </Compile>
+    <Compile Include="TokenStorage.cs" />
     <EmbeddedResource Include="adminpanel.resx">
       <DependentUpon>adminpanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +207,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rezervasyonAPI\rezervasyonAPI.csproj">
+      <Project>{014dbb76-a6da-476a-96a7-11eb4d71fbf5}</Project>
+      <Name>rezervasyonAPI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
