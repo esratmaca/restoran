@@ -38,14 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.txturunAdi = new System.Windows.Forms.TextBox();
             this.txturunFiyati = new System.Windows.Forms.TextBox();
             this.txtkategoriID = new System.Windows.Forms.TextBox();
-            this.txturunID = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUrunler = new System.Windows.Forms.DataGridView();
             this.pnlIcerik.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlIcerik
@@ -145,7 +143,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(99, 488);
+            this.label2.Location = new System.Drawing.Point(99, 459);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 23);
             this.label2.TabIndex = 2;
@@ -155,71 +153,54 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(99, 411);
+            this.label3.Location = new System.Drawing.Point(99, 397);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ürün Fiyatı";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(99, 447);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 23);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Ürün ID";
-            // 
             // txturunAdi
             // 
-            this.txturunAdi.Location = new System.Drawing.Point(228, 367);
+            this.txturunAdi.Location = new System.Drawing.Point(230, 336);
             this.txturunAdi.Name = "txturunAdi";
             this.txturunAdi.Size = new System.Drawing.Size(122, 22);
             this.txturunAdi.TabIndex = 5;
             // 
             // txturunFiyati
             // 
-            this.txturunFiyati.Location = new System.Drawing.Point(245, 411);
+            this.txturunFiyati.Location = new System.Drawing.Point(230, 399);
             this.txturunFiyati.Name = "txturunFiyati";
             this.txturunFiyati.Size = new System.Drawing.Size(122, 22);
             this.txturunFiyati.TabIndex = 6;
             // 
             // txtkategoriID
             // 
-            this.txtkategoriID.Location = new System.Drawing.Point(245, 499);
+            this.txtkategoriID.Location = new System.Drawing.Point(230, 461);
             this.txtkategoriID.Name = "txtkategoriID";
             this.txtkategoriID.Size = new System.Drawing.Size(122, 22);
             this.txtkategoriID.TabIndex = 7;
             // 
-            // txturunID
+            // dgvUrunler
             // 
-            this.txturunID.Location = new System.Drawing.Point(245, 449);
-            this.txturunID.Name = "txturunID";
-            this.txturunID.Size = new System.Drawing.Size(122, 22);
-            this.txturunID.TabIndex = 8;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(450, 206);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUrunler.Location = new System.Drawing.Point(34, 46);
+            this.dgvUrunler.Name = "dgvUrunler";
+            this.dgvUrunler.RowHeadersWidth = 51;
+            this.dgvUrunler.RowTemplate.Height = 24;
+            this.dgvUrunler.Size = new System.Drawing.Size(450, 206);
+            this.dgvUrunler.TabIndex = 9;
+            this.dgvUrunler.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellClick);
+            this.dgvUrunler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUrunler_CellClick);
             // 
             // adminpanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(759, 573);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txturunID);
+            this.Controls.Add(this.dgvUrunler);
             this.Controls.Add(this.txtkategoriID);
             this.Controls.Add(this.txturunFiyati);
             this.Controls.Add(this.txturunAdi);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -228,7 +209,7 @@
             this.Text = "adminpanel";
             this.Load += new System.EventHandler(this.adminpanel_Load);
             this.pnlIcerik.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUrunler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,11 +227,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txturunAdi;
         private System.Windows.Forms.TextBox txturunFiyati;
         private System.Windows.Forms.TextBox txtkategoriID;
-        private System.Windows.Forms.TextBox txturunID;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUrunler;
     }
 }

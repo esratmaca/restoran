@@ -23,36 +23,12 @@ namespace rezervasyonAPI
             // Web API routing
             WebApiConfig.Register(config);
 
-            // JWT ayarları
-            var key = Encoding.UTF8.GetBytes("Secretkey123@");
+            // CORS izinleri - BU KALMALI
+            app.UseCors(CorsOptions.AllowAll);
 
-            app.UseCors(CorsOptions.AllowAll); // CORS izinleri
+           
 
-            // JWT Bearer Kimlik Doğrulama Middleware'ini etkinleştirir.
-            // Bu middleware, gelen HTTP isteklerinin Authorization başlığındaki JWT'yi doğrulayacaktır.
-            
-            app.UseJwtBearerAuthentication(new JwtBearerAuthenticationOptions
-            {
-                // Kimlik doğrulama modunu aktif olarak ayarlar.
-                // Bu, middleware'in her gelen isteği kimlik doğrulamasından geçirmesi gerektiğini belirtir.
-                AuthenticationMode = AuthenticationMode.Active,
-                TokenValidationParameters = new TokenValidationParameters()
-                {
-                    // ValidateIssuer = false: Token'ı veren (issuer) bilginin doğrulanmayacağını belirtir.
-                    ValidateIssuer = false,
-                    // ValidateAudience = false: Token'ın hedef kitlesi (audience) bilginin doğrulanmayacağını belirtir.
-                    ValidateAudience = false,
-                    // ValidateIssuerSigningKey = true: Token'ın imzalayan anahtarının doğrulanacağını belirtir.
-                    // Bu, token'ın değiştirilmediğinden veya sahte olmadığından emin olmak için kritik öneme sahiptir.
-                    ValidateIssuerSigningKey = true,
-                    // IssuerSigningKey: Token'ı doğrulamak için kullanılacak gizli anahtarı sağlar.
-                    // Bu, JwtHelper'da token'ı imzalamak için kullanılan anahtarın aynısı olmalıdır.
-                    IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateLifetime = true
-                }
-            });
-
-            // Bu, HTTP isteklerinin Web API tarafından işlenmesini sağlar
+            // Bu, HTTP isteklerinin Web API tarafından işlenmesini sağlar - BU KALMALI
             app.UseWebApi(config);
         }
 

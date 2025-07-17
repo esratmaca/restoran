@@ -26,14 +26,13 @@ namespace restaurant
         {
             InitializeComponent();
             _masaNo = masaNo;
-            lblMasanumarası.Text = $"Seçilen Masa: {_masaNo}"; 
+            lblMasanumarası.Text = $" {_masaNo}"; 
 
-            // Form yüklendiğinde ürünleri ve mevcut siparişleri yükle
             LoadUrunlerToComboBox();
             LoadExistingOrdersForTable(_masaNo);
 
             
-             this.btngeri.Click += new System.EventHandler(this.btngeri_Click); // Eğer tasarımcıda yoksa bu satırı ekleyin.
+             this.btngeri.Click += new System.EventHandler(this.btngeri_Click); 
         }
 
         private async void LoadUrunlerToComboBox()
@@ -125,6 +124,23 @@ namespace restaurant
                 if (response.IsSuccessful)
                 {
                     MessageBox.Show("Sipariş başarılı API' ye gönderildi");
+                    // Sipariş sonrası masa durumunu "dolu" yap
+                    var durumRequest = new RestRequest("api/account/updatemasadurumu", Method.Put);
+                    durumRequest.AddHeader("Authorization", $"Bearer {TokenStorage.JwtToken}");
+                    durumRequest.AddJsonBody(new
+                    {
+                        MasaID = _masaNo,
+                        Durum = "dolu"
+                    });
+
+
+                    var durumResponse = await client.ExecuteAsync(durumRequest);
+
+                    if (!durumResponse.IsSuccessful)
+                    {
+                        MessageBox.Show("Masa durumu güncellenemedi!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                 }
 
                 else
@@ -143,7 +159,7 @@ namespace restaurant
         {
             var client = new RestClient(BaseApiUrl);
             
-            // Örneğin: GET api/resarvation/getsiparislerbymasa/{masaNo}
+            
             var request = new RestRequest($"api/resarvation/getsiparislerbymasa/{masaNo}", Method.Get);
 
             if (!string.IsNullOrEmpty(TokenStorage.JwtToken))
@@ -240,6 +256,23 @@ namespace restaurant
             masalar masalarForm = new masalar();
             masalarForm.Show(); 
             this.Close();
+        }
+
+        private void cmbMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOdemeyegec_Click(object sender, EventArgs e)
+        {
+            odeme odemeForm = new odeme(); 
+            odemeForm.Show();
+            this.Hide();
+        }
+
+        private void lblMasanumarası_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

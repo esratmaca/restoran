@@ -10,15 +10,20 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using rezervasyonAPI.Models;
 
 namespace restaurant
 {
     public partial class adminpanel : Form
     {
+        private int _selectedProductId = -1; 
+        private int _selectedCategoryId = -1;
         private const string BaseApiUrl = "https://localhost:44363/";
         public adminpanel()
         {
             InitializeComponent();
+            dgvUrunler.CellClick += dgvUrunler_CellClick;
+            LoadProductsToDataGridView();
         }
 
         bool altButonlar = false;
@@ -56,10 +61,9 @@ namespace restaurant
                 return;
             }
 
-
-            if (string.IsNullOrWhiteSpace(txturunAdi.Text) || string.IsNullOrWhiteSpace(txturunFiyati.Text) || string.IsNullOrWhiteSpace(txtkategoriID.Text))
+            if (string.IsNullOrWhiteSpace(txturunAdi.Text) || string.IsNullOrWhiteSpace(txturunFiyati.Text))
             {
-                MessageBox.Show("Lütfen tüm ürün bilgilerini doldurun (Ad, Fiyat, Kategori ID).", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen ürün adı ve fiyatını doldurun.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -68,62 +72,43 @@ namespace restaurant
                 MessageBox.Show("Ürün fiyatı geçerli bir sayı olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (!int.TryParse(txtkategoriID.Text, out int kategoriID))
+            if (!int.TryParse(txtkategoriID.Text, out int kategoriId)) 
             {
-                MessageBox.Show("Kategori ID geçerli bir sayı olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Kategori ID geçerli bir tam sayı olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            //API'ye göndericilicek  ürün bilgilerini içeren anonim bir nesne
+
             var urunData = new
             {
                 UrunAdi = txturunAdi.Text,
                 UrunFiyat = urunFiyat,
-                KategoriID = kategoriID
+                KategoriID = kategoriId
             };
-            //urunData adlı nesneyi JSON formatında bir string'e dönüştürür(serileştirmek)
-            string jsonContent = JsonConvert.SerializeObject(urunData);
 
             var client = new RestClient(BaseApiUrl);
-            var request = new RestRequest("api/resarvation/posturun", Method.Post);
-            //HTTP isteğinin başlıklarına bir Content-Type başlığı ekler.
+            var request = new RestRequest("api/resarvation/posturun", Method.Post); 
             request.AddHeader("Content-Type", "application/json");
-            //Authorization:HTTP standartlarında kimlik doğrulama veya yetkilendirme bilgilerini göndermek için kullanılan standart bir başlıktır.
-            request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken); // JWT token'ı Authorization başlığına ekle
-            //urunData nesnesini HTTP isteğinin gövdesine JSON formatında ekler.
-            request.AddJsonBody(urunData); 
+            request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken);
+            request.AddJsonBody(urunData);
 
             try
             {
-                //await:asenkron bir işlemin tamamlanmasını beklemek için kullanılır.
                 var response = await client.ExecuteAsync(request);
 
-                if (response.IsSuccessful) // HTTP 201 
+                if (response.IsSuccessful)
                 {
                     MessageBox.Show("Ürün başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   
-                    txturunAdi.Clear();
-                    txturunFiyati.Clear();
-                    txtkategoriID.Clear();
+                    ClearInputFields(); // Girdi alanlarını temizle
+                    LoadProductsToDataGridView(); // DataGridView'i yenile
                 }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized) // HTTP 401
-                {
-                    MessageBox.Show("Giriş oturumunuz sona ermiş veya yetkiniz yok. Lütfen tekrar giriş yapın.", "Yetkisiz", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    // Giriş formuna yönlendirme yapabilirsiniz
-                    // LoginForm loginForm = new LoginForm(); loginForm.Show(); this.Close();
-                }
-                else if (response.StatusCode == HttpStatusCode.Forbidden) // HTTP 403
-                {
-                    MessageBox.Show("Bu işlemi yapmaya yetkiniz yok. Sadece adminler ürün ekleyebilir.", "Yasak", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else // Diğer hatalar (400 Bad Request, 500 Internal Server Error vb.)
+                else // Diğer hata durumları (400, 401, 403, 500 vb.)
                 {
                     string errorContent = response.Content;
                     MessageBox.Show($"Ürün eklenirken bir hata oluştu: {response.StatusCode} - {errorContent}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)    
+            catch (Exception ex)
             {
                 MessageBox.Show($"API bağlantı hatası: {ex.Message}", "Bağlantı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -138,47 +123,35 @@ namespace restaurant
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txturunID.Text))
+            if (_selectedProductId == -1) // Hiçbir ürün seçilmemişse
             {
-                MessageBox.Show("Lütfen silinecek ürünün ID'sini girin.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lütfen silinecek ürünü listeden seçin.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!int.TryParse(txturunID.Text, out int urunID))
+            DialogResult dialogResult = MessageBox.Show($"'{txturunAdi.Text}' adlı ürünü silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.No)
             {
-                MessageBox.Show("Ürün ID geçerli bir sayı olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var client = new RestClient(BaseApiUrl);
-            
-            var request = new RestRequest($"api/resarvation/deleteurun/{urunID}", Method.Delete);
-            request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken); // JWT token'ı ekle
+            var request = new RestRequest($"api/resarvation/deleteurun/{_selectedProductId}", Method.Delete);
+            request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken);
 
             try
             {
                 var response = await client.ExecuteAsync(request);
-                MessageBox.Show($"Status: {response.StatusCode}\nContent: {response.Content}");
-
 
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show($"Ürün (ID: {urunID}) başarıyla silindi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txturunID.Clear();
+                    MessageBox.Show($"Ürün (ID: {_selectedProductId}) başarıyla silindi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearInputFields(); 
+                    _selectedProductId = -1; 
+                    _selectedCategoryId = -1; 
+                    LoadProductsToDataGridView(); 
                 }
-                else if (response.StatusCode == HttpStatusCode.NotFound) 
-                {
-                    MessageBox.Show($"Belirtilen ID ({urunID}) ile ürün bulunamadı.", "Ürün Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized) 
-                {
-                    MessageBox.Show("Giriş oturumunuz sona ermiş veya yetkiniz yok. Lütfen tekrar giriş yapın.", "Yetkisiz", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (response.StatusCode == HttpStatusCode.Forbidden) 
-                {
-                    MessageBox.Show("Bu işlemi yapmaya yetkiniz yok. Sadece adminler ürün silebilir.", "Yasak", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                else // Diğer hata durumları
                 {
                     string errorContent = response.Content;
                     MessageBox.Show($"Ürün silinirken bir hata oluştu: {response.StatusCode} - {errorContent}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -190,6 +163,7 @@ namespace restaurant
             }
         }
 
+        
         private async void btnFiyatguncelle_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TokenStorage.JwtToken) || TokenStorage.Rol != "admin")
@@ -197,55 +171,54 @@ namespace restaurant
                 MessageBox.Show("Bu işlemi yapmak için yönetici olarak giriş yapmalısınız.", "Yetkisiz Erişim", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txturunID.Text) || string.IsNullOrWhiteSpace(txturunAdi.Text) || string.IsNullOrWhiteSpace(txturunFiyati.Text) || string.IsNullOrWhiteSpace(txtkategoriID.Text))
+
+            if (_selectedProductId == -1) // Hiçbir ürün seçilmemişse
             {
-                MessageBox.Show("Lütfen tüm ürün bilgilerini girin:", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            //sonra tekraardan bak buraya
-            if(!int.TryParse(txturunID.Text, out int urunID))
-            {
-                MessageBox.Show("Ürün ID geçerli bir sayı olmalıdır!", "Hata", MessageBoxButtons.OK);
+                MessageBox.Show("Lütfen güncellenecek ürünü listeden seçin.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txturunAdi.Text) || string.IsNullOrWhiteSpace(txturunFiyati.Text))
+            {
+                MessageBox.Show("Lütfen ürün adı ve fiyatını doldurun.", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!decimal.TryParse(txturunFiyati.Text, out decimal urunFiyat))
+            {
+                MessageBox.Show("Ürün fiyatı geçerli bir sayı olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            // API'nizin PUT endpoint'inin beklentisine göre bu nesneyi ayarlayın.
             var urunData = new
             {
-                urunID = txturunID.Text,
-                urunAdi = txturunAdi.Text,
-                urunFİyat = txturunFiyati.Text,
-                urunKategori = txtkategoriID.Text,
-
+                UrunID = _selectedProductId, 
+                UrunAdi = txturunAdi.Text,
+                UrunFiyat = urunFiyat,
+                KategoriID = _selectedCategoryId // KategoriID'yi de gönderiyoruz, eğer API bekliyorsa
             };
 
-            string jsonContent = JsonConvert.SerializeObject(urunData);
             var client = new RestClient(BaseApiUrl);
-            var request = new RestRequest($"api/resarvation/puturun/{urunID}", Method.Put);
+            var request = new RestRequest($"api/resarvation/puturun/{_selectedProductId}", Method.Put);
             request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Authorization", jsonContent);
-            request.AddHeader("Authorization" , "Bearer" + TokenStorage.JwtToken);
+            request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken);
+            request.AddJsonBody(urunData);
 
             try
             {
                 var response = await client.ExecuteAsync(request);
-                //messagebox kısmını kontrol et
+
                 if (response.IsSuccessful)
                 {
-                    MessageBox.Show("Ürün başarıyla güncellendi");
-                    txturunID.Clear();
-                    txturunAdi.Clear();
-                    txturunFiyati.Clear();
-                    txtkategoriID.Clear();
+                    MessageBox.Show("Ürün başarıyla güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearInputFields(); 
+                    _selectedProductId = -1; 
+                    _selectedCategoryId = -1; 
+                    LoadProductsToDataGridView(); 
                 }
-                else if (response.StatusCode == HttpStatusCode.Unauthorized)
-                {
-                    MessageBox.Show("Giriş oturumunuz sona ermiş veya yetkiniz yok. Lütfen tekrar giriş yapın.", "Yetkisiz", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if (response.StatusCode == HttpStatusCode.Forbidden)
-                {
-                    MessageBox.Show("Bu işlemi yapmaya yetkiniz yok. Sadece adminler fiyat güncelleyebilir.", "Yasak", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                else // Diğer hata durumları
                 {
                     string errorContent = response.Content;
                     MessageBox.Show($"Fiyat güncellenirken bir hata oluştu: {response.StatusCode} - {errorContent}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -257,6 +230,71 @@ namespace restaurant
             }
 
         }
+
+        private async void LoadProductsToDataGridView()
+        {
+            try
+            {
+                var client = new RestClient(BaseApiUrl);
+                var request = new RestRequest("api/resarvation/geturunler", Method.Get);
+
+                // JWT token'ı Authorization başlığına ekle (eğer API'de yetkilendirme varsa)
+                if (!string.IsNullOrEmpty(TokenStorage.JwtToken))
+                {
+                    request.AddHeader("Authorization", "Bearer " + TokenStorage.JwtToken);
+                }
+
+                var response = await client.ExecuteAsync(request);
+
+               
+                if (response.IsSuccessful)
+                {
+                    var urunList = JsonConvert.DeserializeObject<List<UrunlerDto>>(response.Content);
+                    dgvUrunler.DataSource = urunList;
+
+                    // DataGridView sütun başlıklarını ayarlayın
+                    if (dgvUrunler.Columns.Contains("UrunID")) dgvUrunler.Columns["UrunID"].HeaderText = "Ürün ID";
+                    if (dgvUrunler.Columns.Contains("UrunAdi")) dgvUrunler.Columns["UrunAdi"].HeaderText = "Ürün Adı";
+                    if (dgvUrunler.Columns.Contains("UrunFiyat")) dgvUrunler.Columns["UrunFiyat"].HeaderText = "Ürün Fiyatı";
+                    if (dgvUrunler.Columns.Contains("KategoriID")) dgvUrunler.Columns["KategoriID"].HeaderText = "Kategori ID";
+                    if (dgvUrunler.Columns.Contains("KategoriAdi")) dgvUrunler.Columns["KategoriAdi"].HeaderText = "Kategori Adı";
+                }
+                else
+                {
+                    MessageBox.Show($"Ürünler yüklenirken bir hata oluştu: {response.StatusCode} - {response.Content}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"API bağlantı hatası: {ex.Message}", "Bağlantı Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void ClearInputFields()
+        {
+            txturunAdi.Clear();
+            txturunFiyati.Clear();
+           txtkategoriID.Clear();
+        }
+
+        private void dgvUrunler_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //başlıkların seçilmememesi için
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvUrunler.Rows[e.RowIndex];
+
+                txturunAdi.Text = selectedRow.Cells["UrunAdi"].Value?.ToString();
+                txturunFiyati.Text = selectedRow.Cells["UrunFiyat"].Value?.ToString();
+
+                // ID'leri global değişkenlere sakla, metin kutularına yazma
+                _selectedProductId = selectedRow.Cells["UrunID"].Value != null ? Convert.ToInt32(selectedRow.Cells["UrunID"].Value) : -1;
+                _selectedCategoryId = selectedRow.Cells["KategoriID"].Value != null ? Convert.ToInt32(selectedRow.Cells["KategoriID"].Value) : -1;
+            }
+        }
+
+       
     }
 }
 

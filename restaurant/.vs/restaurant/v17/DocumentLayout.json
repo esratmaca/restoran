@@ -3,28 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\restaurant\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\rezervasyonapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\restaurant\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\adminpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\odeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\odeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\rezervasyonapi\\controllers\\resarvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonapi\\controllers\\resarvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\controllers\\resarvationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\restaurant\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\restaurant\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|c:\\users\\user\\onedrive\\belgeler\\github\\restoran\\restaurant\\restaurant\\odeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{B5F621C7-B026-4114-80C8-F6BAFC092A4B}|restaurant\\restaurant.csproj|solutionrelative:restaurant\\odeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonapi\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{014DBB76-A6DA-476A-96A7-11EB4D71FBF5}|rezervasyonAPI\\rezervasyonAPI.csproj|solutionrelative:rezervasyonapi\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -44,36 +40,11 @@
               "RelativeDocumentMoniker": "rezervasyonAPI\\Controllers\\ResarvationController.cs",
               "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonAPI\\Controllers\\ResarvationController.cs",
               "RelativeToolTip": "rezervasyonAPI\\Controllers\\ResarvationController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAYwB4AAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T14:34:52.072Z",
               "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "adminpanel.cs",
-              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\adminpanel.cs",
-              "RelativeDocumentMoniker": "restaurant\\adminpanel.cs",
-              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\adminpanel.cs",
-              "RelativeToolTip": "restaurant\\adminpanel.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAswG4AAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:28:27.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "adminpanel.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\adminpanel.cs",
-              "RelativeDocumentMoniker": "restaurant\\adminpanel.cs",
-              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\adminpanel.cs [Design]",
-              "RelativeToolTip": "restaurant\\adminpanel.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:23:36.078Z",
-              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -81,40 +52,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "siparisform.cs",
-              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\siparisform.cs",
-              "RelativeDocumentMoniker": "restaurant\\siparisform.cs",
-              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\siparisform.cs",
-              "RelativeToolTip": "restaurant\\siparisform.cs",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAAwO8AAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonAPI\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonAPI\\Services\\OrderService.cs",
+              "RelativeToolTip": "rezervasyonAPI\\Services\\OrderService.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAmwH4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:18:16.605Z",
+              "WhenOpened": "2025-07-16T14:29:56.048Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "siparisform.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\siparisform.cs",
-              "RelativeDocumentMoniker": "restaurant\\siparisform.cs",
-              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\siparisform.cs [Design]",
-              "RelativeToolTip": "restaurant\\siparisform.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-09T07:18:13.242Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "odeme.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\odeme.cs",
               "RelativeDocumentMoniker": "restaurant\\odeme.cs",
               "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\odeme.cs [Design]",
               "RelativeToolTip": "restaurant\\odeme.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T14:47:14.576Z",
+              "WhenOpened": "2025-07-17T09:23:35.71Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonAPI\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "rezervasyonAPI\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\rezervasyonAPI\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "rezervasyonAPI\\App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwB8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T13:02:59.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "odeme.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\odeme.cs",
+              "RelativeDocumentMoniker": "restaurant\\odeme.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Belgeler\\GitHub\\restoran\\restaurant\\restaurant\\odeme.cs",
+              "RelativeToolTip": "restaurant\\odeme.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAawIQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T12:26:02.204Z",
+              "EditorCaption": ""
             }
           ]
         }

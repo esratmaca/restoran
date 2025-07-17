@@ -38,6 +38,7 @@
             this.lstSiparişler = new System.Windows.Forms.ListBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btngeri = new System.Windows.Forms.Button();
+            this.btnOdemeyegec = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@
             this.cmbMenu.Name = "cmbMenu";
             this.cmbMenu.Size = new System.Drawing.Size(121, 24);
             this.cmbMenu.TabIndex = 2;
+            this.cmbMenu.SelectedIndexChanged += new System.EventHandler(this.cmbMenu_SelectedIndexChanged);
             // 
             // lblMasanumarası
             // 
@@ -68,6 +70,7 @@
             this.lblMasanumarası.Size = new System.Drawing.Size(60, 23);
             this.lblMasanumarası.TabIndex = 3;
             this.lblMasanumarası.Text = "label2";
+            this.lblMasanumarası.Click += new System.EventHandler(this.lblMasanumarası_Click);
             // 
             // label2
             // 
@@ -101,7 +104,7 @@
             this.btnekle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnekle.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnekle.ForeColor = System.Drawing.Color.White;
-            this.btnekle.Location = new System.Drawing.Point(100, 324);
+            this.btnekle.Location = new System.Drawing.Point(43, 324);
             this.btnekle.Name = "btnekle";
             this.btnekle.Size = new System.Drawing.Size(107, 93);
             this.btnekle.TabIndex = 7;
@@ -113,7 +116,7 @@
             // 
             this.lstSiparişler.FormattingEnabled = true;
             this.lstSiparişler.ItemHeight = 16;
-            this.lstSiparişler.Location = new System.Drawing.Point(275, 333);
+            this.lstSiparişler.Location = new System.Drawing.Point(169, 333);
             this.lstSiparişler.Name = "lstSiparişler";
             this.lstSiparişler.Size = new System.Drawing.Size(105, 84);
             this.lstSiparişler.TabIndex = 8;
@@ -123,7 +126,7 @@
             this.btngeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btngeri.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btngeri.ForeColor = System.Drawing.Color.White;
-            this.btngeri.Location = new System.Drawing.Point(451, 324);
+            this.btngeri.Location = new System.Drawing.Point(308, 324);
             this.btngeri.Name = "btngeri";
             this.btngeri.Size = new System.Drawing.Size(104, 93);
             this.btngeri.TabIndex = 9;
@@ -131,11 +134,25 @@
             this.btngeri.UseVisualStyleBackColor = false;
             this.btngeri.Click += new System.EventHandler(this.btngeri_Click);
             // 
+            // btnOdemeyegec
+            // 
+            this.btnOdemeyegec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnOdemeyegec.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnOdemeyegec.ForeColor = System.Drawing.Color.White;
+            this.btnOdemeyegec.Location = new System.Drawing.Point(459, 329);
+            this.btnOdemeyegec.Name = "btnOdemeyegec";
+            this.btnOdemeyegec.Size = new System.Drawing.Size(103, 88);
+            this.btnOdemeyegec.TabIndex = 10;
+            this.btnOdemeyegec.Text = "ÖDEMEYE GEÇ";
+            this.btnOdemeyegec.UseVisualStyleBackColor = false;
+            this.btnOdemeyegec.Click += new System.EventHandler(this.btnOdemeyegec_Click);
+            // 
             // siparisform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(644, 563);
+            this.Controls.Add(this.btnOdemeyegec);
             this.Controls.Add(this.btngeri);
             this.Controls.Add(this.lstSiparişler);
             this.Controls.Add(this.btnekle);
@@ -166,5 +183,6 @@
         private System.Windows.Forms.ListBox lstSiparişler;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btngeri;
+        private System.Windows.Forms.Button btnOdemeyegec;
     }
 }

@@ -57,7 +57,6 @@ C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\EntityFramework.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\System.Web.Http.WebHost.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\Microsoft.Owin.Cors.dll
-C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\Microsoft.Owin.Security.Jwt.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\System.Web.Http.Owin.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\System.Web.Cors.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\rezervasyonAPI.pdb
@@ -92,7 +91,6 @@ C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\EntityFramework.xml
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\System.Web.Http.WebHost.xml
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\Microsoft.Owin.Cors.xml
-C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\Microsoft.Owin.Security.Jwt.xml
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\System.Web.Http.Owin.xml
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\tr\System.Net.Http.Formatting.resources.dll
 C:\Users\User\OneDrive\Belgeler\GitHub\restoran\restaurant\restaurant\bin\Debug\tr\System.Web.Http.resources.dll

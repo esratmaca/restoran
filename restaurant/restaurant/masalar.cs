@@ -38,7 +38,7 @@ namespace restaurant
                 btn.Width = butonGenislik;
                 btn.Height = butonYukseklik;
                 btn.Tag = i;
-                btn.BackColor = Color.Gray; 
+                btn.BackColor = Color.Blue; 
                 btn.Left = x;
                 btn.Top = y;
                 btn.Click += MasaButon_Click;
@@ -59,7 +59,7 @@ namespace restaurant
         private async Task LoadTableStatuses()
         {
             var client = new RestClient(BaseApiUrl);
-            var request = new RestRequest("api/resarvation/getmasadurumlari", Method.Get); 
+            var request = new RestRequest("api/account/getmasadurumlari", Method.Get);
 
             if (string.IsNullOrEmpty(TokenStorage.JwtToken))
             {
@@ -77,36 +77,46 @@ namespace restaurant
 
                 if (response.IsSuccessful && response.Data != null)
                 {
-                    foreach (var status in response.Data) // status artık string "Durum" property'sine sahip
+                    foreach (var status in response.Data)
                     {
                         foreach (Control control in panelmasalar.Controls)
                         {
-                            if (control is Button btn && (int)btn.Tag == status.MasaID)
+                            
+                            if (control is Button btn && btn.Tag is int masaIdFromTag && masaIdFromTag == status.MasaID)
                             {
-                                // status.Durum'u doğrudan kullanın
-                                switch (status.Durum.ToLowerInvariant()) // ToLowerInvariant() veya ToLower()
+                              
+                                string durumLowerCase = status.Durum?.ToLowerInvariant() ?? "boş";
+
+                                switch (durumLowerCase) 
                                 {
-                                    case "dolu":
+                                    case "dolu": 
                                         btn.BackColor = Color.FromArgb(180, 40, 40); 
                                         break;
-                                    case "boş":
+                                    case "boş": 
                                         btn.BackColor = Color.FromArgb(40, 180, 40); 
                                         break;
-                                    case "rezerve":
-                                        btn.BackColor = Color.FromArgb(255, 165, 0); 
+                                    case "ödeme bekleniyor": 
+                                        btn.BackColor = Color.Orange; 
                                         break;
                                     default:
-                                        btn.BackColor = Color.Gray; // Bilinmeyen durumlar için
+                                       
+                                        System.Diagnostics.Debug.WriteLine($"Masa {status.MasaID} için beklenmeyen durum: {status.Durum}");
+                                        btn.BackColor = Color.Gray; 
                                         break;
                                 }
-                                break;
+                                break; 
                             }
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"Masa durumları yüklenirken hata oluştu: {response.StatusCode} - {response.ErrorMessage ?? response.Content}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Masa durumları yüklenirken API'den hata alındı.\n" +
+                                    $"HTTP Durum Kodu: {response.StatusCode}\n" +
+                                    $"Hata Mesajı (RestSharp): {response.ErrorMessage}\n" +
+                                    $"API Yanıt İçeriği: {response.Content}",
+                                    "API Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             catch (Exception ex)
@@ -115,16 +125,21 @@ namespace restaurant
             }
         }
 
-        private void MasaButon_Click(object sender, EventArgs e)
+        private async void MasaButon_Click(object sender, EventArgs e)
         {
             Button tiklanan = sender as Button;
             int masaNo = (int)tiklanan.Tag;
 
-           
-            MessageBox.Show($"Masa {masaNo} seçildi.");
+            //MessageBox.Show($"Masa {masaNo} seçildi."); // Bu mesaj kutusu akışı kesebilir, test için kaldırılabilir
             siparisform sipariş = new siparisform(masaNo);
-            this.Hide();
-            sipariş.ShowDialog();
+            this.Hide(); 
+
+            sipariş.ShowDialog(); 
+
+           
+            this.Show(); // masalar formunu tekrar göster
+            await LoadTableStatuses();
+
         }
 
         private void panelmasalar_Paint(object sender, PaintEventArgs e)

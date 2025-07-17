@@ -199,6 +199,7 @@
     <Compile Include="Models\LoginRequest.cs" />
     <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\MasaDurum.cs" />
+    <Compile Include="Models\MasaDurumDto.cs" />
     <Compile Include="Models\Masalar.cs">
       <DependentUpon>RestaurantDataModel.tt</DependentUpon>
     </Compile>
@@ -228,7 +229,13 @@
     <Compile Include="Models\Urunler.cs">
       <DependentUpon>RestaurantDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UrunlerDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\Results\ServiceResult.cs" />
+    <Compile Include="Services\ServiseResultExtensions.cs" />
+    <Compile Include="Services\UrunService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Token\JwtAuthenticationFilter.cs" />
   </ItemGroup>
